@@ -128,7 +128,7 @@ resource "aws_route_table" "doa_private_rt" {
   vpc_id = aws_vpc.doa_vpc.id
   
   tags = {
-    Name = "${var-project}-rt-private-${var.environment}"
+    Name = "${var.project}-rt-private-${var.environment}"
     Environment = var.environment
   }
 }
