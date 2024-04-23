@@ -5,6 +5,9 @@ variable "aws_region" {
 variable "aws-infra-profile" {}
 variable "access_ip" {}
 
+variable "project" {}
+variable "environment" {}
+
 # ---- network variables
 variable "doa_vpc_cidr" {}
 variable "doa_subnet_web01_public_cidr" {}

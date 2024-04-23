@@ -2,7 +2,7 @@
 
 # Deploy Networking Resources
 module "network" {
-  source                        = "./modules/network"
+  source                        = "../../modules/network"
   access_ip                     = var.access_ip
   doa_vpc_cidr                  = var.doa_vpc_cidr
   doa_subnet_web01_public_cidr  = var.doa_subnet_web01_public_cidr
@@ -13,7 +13,6 @@ module "network" {
   doa_subnet_db02_private_cidr  = var.doa_subnet_db02_private_cidr
   security_groups               = local.security_groups
   db_subnet_group               = "true"
-  project                       = "doa"
-  environment                   = "dev"
-"
+  project                       = var.project
+  environment                   = var.environment
 }
