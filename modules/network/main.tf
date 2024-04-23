@@ -47,7 +47,7 @@ resource "aws_subnet" "doa_subnet_app01_private" {
   availability_zone       = data.aws_availability_zones.available.names[0]
 
   tags = {
-    Name = "${var.project}-doa-subnet-app01-private-${var.environment}"
+    Name = "${var.project}-subnet-app01-private-${var.environment}"
     Environment = var.environment
   }
 }
@@ -71,7 +71,7 @@ resource "aws_subnet" "doa_subnet_db01_private" {
   availability_zone       = data.aws_availability_zones.available.names[0]
 
   tags = {
-    Name = "${var.private}-doa-subnet-db01-private-${var.environment}"
+    Name = "${var.project}-subnet-db01-private-${var.environment}"
     Environment = var.environment
   }
 }
@@ -83,7 +83,7 @@ resource "aws_subnet" "doa_subnet_db02_private" {
   availability_zone       = data.aws_availability_zones.available.names[1]
 
   tags = {
-    Name = "${var.project}-doa-subnet-db02-private-${var.environment}"
+    Name = "${var.project}-subnet-db02-private-${var.environment}"
     Environment = var.environment
   }
 }
