@@ -9,7 +9,6 @@ resource "aws_vpc" "doa_vpc" {
 
   tags = {
     Name = "${var.project}-vpc-${var.environment}"
-    Type = "AWS VPC"
     Environment = var.environment
   }
   lifecycle {
@@ -25,7 +24,7 @@ resource "aws_subnet" "doa_subnet_web01_public" {
 
   tags = {
     Name = "${var.project}-subnet-web01-public-${var.environment}"
-    Type = "AWS VPC Subnet"
+    Environment = var.environment
   }
 }
 
@@ -36,7 +35,8 @@ resource "aws_subnet" "doa_subnet_web02_public" {
   availability_zone       = data.aws_availability_zones.available.names[1]
 
   tags = {
-    Name = "doa_subnet_web02_public"
+    Name = "${var.project}-subnet-web02-public-${var.environment}"
+    Environment = var.environment
   }
 }
 
@@ -47,7 +47,8 @@ resource "aws_subnet" "doa_subnet_app01_private" {
   availability_zone       = data.aws_availability_zones.available.names[0]
 
   tags = {
-    Name = "doa_subnet_app01_private"
+    Name = "${var.project}-doa-subnet-app01-private-${var.environment}"
+    Environment = var.environment
   }
 }
 
@@ -58,7 +59,8 @@ resource "aws_subnet" "doa_subnet_app02_private" {
   availability_zone       = data.aws_availability_zones.available.names[1]
 
   tags = {
-    Name = "doa_subnet_app02_private"
+    Name = "${var.project}-subnet-app02-private-${var.environment}"
+    Environment = var.environment
   }
 }
 
@@ -69,7 +71,8 @@ resource "aws_subnet" "doa_subnet_db01_private" {
   availability_zone       = data.aws_availability_zones.available.names[0]
 
   tags = {
-    Name = "doa_subnet_db01_private"
+    Name = "${var.private}-doa-subnet-db01-private-${var.environment}"
+    Environment = var.environment
   }
 }
 
@@ -80,7 +83,8 @@ resource "aws_subnet" "doa_subnet_db02_private" {
   availability_zone       = data.aws_availability_zones.available.names[1]
 
   tags = {
-    Name = "doa_subnet_db02_private"
+    Name = "${var.project}-doa-subnet-db02-private-${var.environment}"
+    Environment = var.environment
   }
 }
 
@@ -88,7 +92,8 @@ resource "aws_internet_gateway" "doa_internet_gateway" {
   vpc_id = aws_vpc.doa_vpc.id
 
   tags = {
-    Name = "doa_igw"
+    Name = "${var.project}-igw-${var.environment}"
+    Environment = var.environment
   }
 }
 
@@ -96,7 +101,8 @@ resource "aws_route_table" "doa_public_rt" {
   vpc_id = aws_vpc.doa_vpc.id
 
   tags = {
-    Name = "doa_rt_public"
+    Name = "${var.project}-rt-public-${var.environment}"
+    Environment = var.environment
   }
 }
 
@@ -122,7 +128,8 @@ resource "aws_route_table" "doa_private_rt" {
   vpc_id = aws_vpc.doa_vpc.id
   
   tags = {
-    Name = "doa_rt_private"
+    Name = "${var-project}-rt-private-${var.environment}"
+    Environment = var.environment
   }
 }
 
@@ -163,7 +170,8 @@ resource "aws_nat_gateway" "doa_ngw" {
   depends_on = [aws_internet_gateway.doa_internet_gateway]
 
   tags = {
-    Name = "doa_ngw"
+    Name = "${var.project}-ngw-${var.environment}"
+    Environment = var.environment
   }
 }
 

@@ -4,7 +4,7 @@ locals {
 locals {
   security_groups = {
     public = {
-      name        = "public_sg"
+      name        = "doa-public-sg"
       description = "public access"
       ingress = {
         open = {
