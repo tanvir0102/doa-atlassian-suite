@@ -4,14 +4,6 @@ output "vpc_id" {
   value = aws_vpc.doa_vpc.id
 }
 
-output "db_security_group" {
-  value = aws_security_group.doa_sg["rds"].id
-}
-
-output "public_sg" {
-  value = aws_security_group.doa_sg["public"].id
-}
-
 output "doa_subnet_web01_public_id" {
   value = aws_subnet.doa_subnet_web01_public.id
 }
