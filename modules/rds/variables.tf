@@ -1,8 +1,8 @@
 variable "name_tag" {
   description = "Used for tagging all instance-related resources"
 }
-variable "vpc_id" {}
-variable "db_private_subnets" {
+variable "doa_vpc_id" {}
+variable "doa_db_private_subnets" {
   type = "list"
 }
 variable "listening_port" {
